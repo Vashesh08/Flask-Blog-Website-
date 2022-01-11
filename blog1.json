@@ -1,0 +1,12 @@
+{
+  "blog1": {
+  "author": "Vashesh Jogani",
+  "post": "Hi, this is my ifrst post on Flask Application",
+  "date": "6th January 2022"
+  },
+  "blog2": {
+  "author": "Vashesh Jogani",
+  "post": "Hi, this is my ifrst post on Flask Application",
+  "date": "6th January 2022"
+  }
+}

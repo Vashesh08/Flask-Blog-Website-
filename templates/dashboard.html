@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')"
+        xmlns="http://www.w3.org/1999/html">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Admin Panel</h1>
+                    <span class="subheading">Manage your Posts and save them</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <h1>Upload a new Post</h1>
+
+            <a href="/edit/0"><button class="btn btn-primary text-uppercase"> ADD POST</button></a>
+            <a href="/logout"><button class="btn btn-primary text-uppercase"> LOGOUT </button></a>
+            <hr>
+            <h1>Upload a file</h1>
+            <form action="/uploader" method="post" enctype="multipart/form-data">
+<!--                <label for="file">Select a file:</label>-->
+                <input type="file" id="file" name="file">
+                <button type="submit" class="btn btn-primary text-uppercase">Submit</button>
+            </form>
+            <hr>
+            <h1>Edit Post</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">S No</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for post in posts %}
+
+                <tr>
+                    <th scope="row">{{ post.sno }}</th>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.date }}</td>
+                    <td><a href="/edit/{{ post.sno }}"><button class="btn btn-primary text-uppercase">Edit</button></a></td>
+                    <td><a href="/delete/ {{ post.sno }}"><button class="btn btn-primary text-uppercase">Delete</button></a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block body %}
+        <!-- Page Header-->
+        <header class="masthead mb-0" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Clean Blog</h1>
+                            <span class="subheading">First Blog</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    {% for post in posts %}
+
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <a href="/post/{{post.slug}}">
+                            <h2 class="post-title">{{ post.title }}</h2>
+                            <h3 class="post-subtitle">{{ post.tagline }}</h3>
+                            <h4 class="post-subtitle">{{ post.content }}...</h4>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">Admin</a>
+                            on {{ post.date }}
+                        </p>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    {% endfor %}
+                    <div class="d-flex justify-content-between mb-4"><a class="btn btn-primary text-uppercase" href="{{ prev }}">&larr; Older Posts</a><a class="btn btn-primary text-uppercase" href="{{ next_page }}">Newer Posts →</a></div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

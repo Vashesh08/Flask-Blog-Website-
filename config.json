@@ -1,0 +1,16 @@
+{
+  "params": {
+    "local_server": "True",
+    "local_uri": "mysql://root:@localhost:3305/first_blog",
+    "prod_uri": "mysql://root:@localhost:3305/first_blog",
+    "github_url": "https://github.com/Vashesh08",
+    "twitter_url": "https://twitter.com/Vashesh2",
+    "facebook_url": "https://hi-in.facebook.com/people/Vashesh-Jogani/100008559395825/",
+    "no_of_posts": 3,
+    "admin_user": "VJ",
+    "admin_password": "VASHESH123",
+    "upload_location": "E:\\Users\\Raju Jogani\\OneDrive\\Desktop\\Python\\All flask environments\\FlaskWebDev2022\\static"
+
+  }
+
+}
