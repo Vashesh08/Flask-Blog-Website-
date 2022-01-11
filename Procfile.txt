@@ -1,1 +1,1 @@
-web: python tut.py
+web: gunicorn tut:app
