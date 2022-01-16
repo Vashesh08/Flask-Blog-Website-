@@ -1,8 +1,8 @@
 {
   "params": {
     "local_server": "True",
-    "local_uri": "mysql://root:@localhost:3305/first_blog",
-    "prod_uri": "mysql://root:@localhost:3305/first_blog",
+    "local_uri": "sqlite:////tmp/first_blog.db",
+    "prod_uri": "sqlite:////tmp/first_blog.db",
     "github_url": "https://github.com/Vashesh08",
     "twitter_url": "https://twitter.com/Vashesh2",
     "facebook_url": "https://hi-in.facebook.com/people/Vashesh-Jogani/100008559395825/",
