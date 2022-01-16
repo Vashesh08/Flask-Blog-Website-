@@ -115,7 +115,7 @@ def about():
     return render_template('about.html', params=params)
 
 
-@app.route('/delete/<string:sno>', methods=['GET', 'POST'])
+@app.route('/delete/<int:sno>', methods=['GET', 'POST'])
 def delete(sno):
     if 'user' in session and session['user'] == params['admin_user']:
         post_del = Posts.query.filter_by(sno=sno).first()
@@ -201,7 +201,7 @@ def post_route(post_slug):
     return render_template('post.html', params=params, post=posts)
 
 
-@app.route('/edit/<string:sno>', methods=['GET', 'POST'])
+@app.route('/edit/<int:sno>', methods=['GET', 'POST'])
 def edit(sno):
     if "user" in session and session['user'] == params['admin_user']:
         if request.method == 'POST':
@@ -210,7 +210,7 @@ def edit(sno):
             slug = request.form.get('slug')
             content = request.form.get('content')
             img_file = request.form.get('img_file').remove_prefix("%20")
-            if sno == '0':
+            if sno == 0:
                 posting = Posts(title=box_title, slug=slug, content=content, img_file=img_file, date=datetime.now(),
                                 tagline=tagline)
                 db.session.add(posting)
@@ -224,7 +224,7 @@ def edit(sno):
                 posting.img_file = img_file
                 posting.date = datetime.now()
                 db.session.commit()
-                return redirect('/edit/'+sno)
+                return redirect('/edit/{}'.format(sno))
     posts = Posts.query.filter_by(sno=sno).first()
     return render_template('edit.html', params=params, posts=posts, sno=sno)
 
