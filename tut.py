@@ -76,37 +76,17 @@ class Posts(db.Model):
     #     return '<User %r>' % self.name
 
 
-@app.route("/")
-def home():
-    flash('Welcome')
-    posts = Posts.query.filter_by().all()
-    last = math.ceil(len(posts) / int(params['no_of_posts']))
-    page = request.args.get('number')
-    print(last)
-    if not str(page).isnumeric():
-        page = 1
-    page = int(page)
-    posts = posts[(page-1)*int(params['no_of_posts']):page*int(params['no_of_posts'])]
-    # Pagination
-    # First
-    # [0:params['no_of_posts']]
-    if page == 1:
-        prev = "#"
-        next_page = "/?number="+str(page+1)
-    elif page == last:
-        prev = "/?number="+str(page-1)
-        next_page = "#"
-    else:
-        prev = "/?number="+str(page-1)
-        next_page = "/?number="+str(page+1)
-
-    return render_template('index.html', params=params, posts=posts, prev=prev, next_page=next_page)
-
 
 @app.route('/logout')
 def logout():
     session.pop('user')
     return redirect('/dashboard')
+
+@app.route('/')
+def index():
+    r = requests.get('http://httpbin.org/status/418')
+    print(r.text)
+    return ('<pre>' + r.text + '</pre>')
 
 
 @app.route('/about')
