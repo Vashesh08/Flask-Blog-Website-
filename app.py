@@ -175,9 +175,9 @@ def contact():
         phone_num = request.form.get('phone_num')
         mssg = request.form.get('message')
         entry = Contacts(name=name, email_user=email_user, mssg=mssg, date=datetime.now(), phone_num=phone_num)
-    	db.session.add(entry)
+        db.session.add(entry)
         db.session.commit()
-	try:
+	    try:
             message["Subject"] = "Welcome To Vashesh's Page"
             message.set_content("Hello {}, Your message has been received. We wil soon reply to you\n"
                                 "The following details have been received:\nPhone: {}\nEmail: {}\nMessage: "
@@ -191,7 +191,7 @@ def contact():
             source123.quit()
             flash('Message Sent.', "success")
         except Exception as e:
-		pass
+		    pass
     return render_template('contact.html', params=params)
 
 
