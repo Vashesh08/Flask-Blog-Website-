@@ -175,7 +175,7 @@ def contact():
         phone_num = request.form.get('phone_num')
         mssg = request.form.get('message')
         entry = Contacts(name=name, email_user=email_user, mssg=mssg, date=datetime.now(), phone_num=phone_num)
-	db.session.add(entry)
+    	db.session.add(entry)
         db.session.commit()
 	try:
             message["Subject"] = "Welcome To Vashesh's Page"
