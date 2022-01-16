@@ -209,7 +209,7 @@ def edit(sno):
             tagline = request.form.get('tagline')
             slug = request.form.get('slug')
             content = request.form.get('content')
-            img_file = request.form.get('img_file').remove_prefix("%20)
+            img_file = request.form.get('img_file').remove_prefix("%20")
             if sno == '0':
                 posting = Posts(title=box_title, slug=slug, content=content, img_file=img_file, date=datetime.now(),
                                 tagline=tagline)
