@@ -20,8 +20,8 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-email_address = 'demo.newark@gmail.com'
-email_password = 'newark123###'
+email_address = 'gmail_email'
+email_password = 'gmail_password'
 
 message = email.message.EmailMessage()
 message["From"] = email_address
