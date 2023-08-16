@@ -5,4 +5,8 @@ Learnt From CodeWithHarry. It's a good tutorial for newbies and beginners. It co
 
 Check Out the playlist if you need: https://youtube.com/playlist?list=PLu0W_9lII9agAiWp6Y41ueUKx1VcTRxmf
 
-Deployed On Heroku: https://guarded-island-86869.herokuapp.com/
+Deployed Here:
+
+https://first_blog-1-h2799274.deta.app/
+
+https://flask-blog-website-ct55.onrender.com/
